@@ -36,19 +36,13 @@ radio.onReceivedNumber(function (receivedNumber) {
     basic.clearScreen()
 })
 input.onGesture(Gesture.EightG, function () {
-	
-})
-input.onButtonPressed(Button.A, function () {
-    radio.sendString("Tsunami is here!")
-    Detector = 1
+    radio.sendString("Tsunami and Earthquake are here!")
+    Detector = 3
     radio.sendNumber(Detector)
 })
 input.onGesture(Gesture.FreeFall, function () {
-	
-})
-input.onButtonPressed(Button.B, function () {
-    radio.sendString("Tsunami and Earthquake are here!")
-    Detector = 3
+    radio.sendString("Tsunami is here!")
+    Detector = 1
     radio.sendNumber(Detector)
 })
 input.onGesture(Gesture.Shake, function () {
