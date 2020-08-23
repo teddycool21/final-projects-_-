@@ -1,8 +1,8 @@
 radio.onReceivedNumber(function (receivedNumber) {
     if (receivedNumber == 1) {
         basic.showString("Tsunami is here!")
-        music.startMelody(music.builtInMelody(Melodies.Entertainer), MelodyOptions.Forever)
-        while (receivedNumber == 1) {
+        while (!(input.buttonIsPressed(Button.AB))) {
+            music.startMelody(music.builtInMelody(Melodies.Entertainer), MelodyOptions.Once)
             pins.digitalWritePin(DigitalPin.P1, 0)
             basic.pause(200)
             pins.digitalWritePin(DigitalPin.P1, 1)
@@ -11,8 +11,8 @@ radio.onReceivedNumber(function (receivedNumber) {
     } else {
         if (receivedNumber == 2) {
             basic.showString("Earthquake is here!")
-            music.startMelody(music.builtInMelody(Melodies.Dadadadum), MelodyOptions.Forever)
-            while (receivedNumber == 2) {
+            while (!(input.buttonIsPressed(Button.AB))) {
+                music.startMelody(music.builtInMelody(Melodies.Dadadadum), MelodyOptions.Once)
                 pins.digitalWritePin(DigitalPin.P2, 0)
                 basic.pause(500)
                 pins.digitalWritePin(DigitalPin.P2, 1)
@@ -20,8 +20,8 @@ radio.onReceivedNumber(function (receivedNumber) {
             }
         } else {
             basic.showString("Tsunami and Earthquake are here!")
-            music.startMelody(music.builtInMelody(Melodies.Prelude), MelodyOptions.Once)
-            while (receivedNumber == 3) {
+            while (!(input.buttonIsPressed(Button.AB))) {
+                music.startMelody(music.builtInMelody(Melodies.Prelude), MelodyOptions.Once)
                 pins.digitalWritePin(DigitalPin.P1, 0)
                 pins.digitalWritePin(DigitalPin.P2, 0)
                 basic.pause(1000)
@@ -31,6 +31,9 @@ radio.onReceivedNumber(function (receivedNumber) {
             }
         }
     }
+    pins.digitalWritePin(DigitalPin.P1, 0)
+    pins.digitalWritePin(DigitalPin.P2, 0)
+    basic.clearScreen()
 })
 input.onGesture(Gesture.EightG, function () {
 	
