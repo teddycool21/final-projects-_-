@@ -54,6 +54,10 @@ let Detector = 0
 radio.setGroup(100)
 radio.setTransmitPower(1)
 Detector = 0
+pins.onPulsed(DigitalPin.P0, PulseValue.High, function () {
+    devices.raiseAlertTo(MesAlertEvent.RingAlarm)
+})
 basic.forever(function () {
 	
 })
+
