@@ -38,19 +38,19 @@ radio.onReceivedNumber(function (receivedNumber) {
     Detector = 0
     basic.clearScreen()
 })
+input.onGesture(Gesture.EightG, function () {
+    radio.sendString("Tsunami and Earthquake are here!")
+    Detector = 3
+    radio.sendNumber(Detector)
+})
 input.onGesture(Gesture.FreeFall, function () {
     radio.sendString("Tsunami is here!")
     Detector = 1
     radio.sendNumber(Detector)
 })
-input.onGesture(Gesture.LogoUp, function () {
+input.onGesture(Gesture.Shake, function () {
     radio.sendString("Earthquake is here!")
     Detector = 2
-    radio.sendNumber(Detector)
-})
-input.onGesture(Gesture.Shake, function () {
-    radio.sendString("Tsunami and Earthquake are here!")
-    Detector = 3
     radio.sendNumber(Detector)
 })
 let Detector = 0
